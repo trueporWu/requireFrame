@@ -14,23 +14,19 @@ requirejs.config({
         app: '../app',
         jquery: 'jquery/1.9.1/jquery-1.9.1.min',
         template: 'artTemplate/template-native',
-        tpls: '../../tpls'
+        tpls: '../../tpls',
+        director:'director.min',
     }
 });
 
-//// Start the main app logic.
-//requirejs(['jquery','template','app/sub',"!tpl/hostList.html"],
-//    function   ($,template,sub,html) {
-//        //jQuery, canvas and the app/sub module are all
-//        console.log(html);
-//        //loaded and can be used here now.
-//        //sub.getInfo();
-//    });
 
 /**
  * 入口函数
  */
-require(['app/sub'], function (sub) {
+require(['app/router','app/menu'], function (router, menu) {
     // some code
-    sub.getInfo();
+    //sub.getInfo();
+    menu.initMenu();
+    router.routerHandle();
+
 });

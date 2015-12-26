@@ -1,4 +1,337 @@
-.dash-boarder{
+.dash-boarder {
     border: 1px dashed #bbbbbb;
     padding: 10px;
+}
+
+body {
+    background-color: #EAEBEC;
+    /*min-height: 2000px;*/
+}
+
+/**
+ * 全局公共样式
+ */
+.flex-center {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+/**
+ * 顶部头部区域
+ */
+.header-shrink, .page-with-siderbar {
+    margin-left: 230px;
+    min-width: 320px;
+}
+
+.sidebar-expanded {
+    margin-left: 64px !important;
+}
+
+.sidebar-wrapper-min {
+    width: 64px !important;
+}
+
+.wbk-header {
+    background-color: white;
+    margin-bottom: 0 !important;
+}
+
+.wbk-header .wbk-navbar {
+    display: flex;
+    align-items: center;
+    background-color: #808080;
+    border: 1px solid;
+    border-radius: 0;
+}
+
+/**
+ * 面包屑
+ */
+.page-with-siderbar > .broadcast {
+    min-height: 50px;
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+}
+
+/**
+ * 侧栏及侧栏导航
+ */
+.page-with-siderbar > .sidebar-wrapper {
+    width: 230px;
+}
+
+.page-with-siderbar > .sidebar-wrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #1e53a4;
+    transition-duration: .3s;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.toggle-navbar, .sidebar-wrapper > .header-logo, .sub-menu li {
+    width: inherit;
+    color: white;
+    cursor: pointer;
+}
+
+.sidebar-wrapper > .header-logo {
+    padding: 10px;
+    overflow: hidden;
+    transition-duration: .3s;
+    border-bottom: 1px solid transparent;
+    height: 58px;
+    line-height: 38px;
+}
+
+.header-logo > .logo-icon {
+    margin-left: 4px;
+    width: 36px;
+    height: 36px;
+}
+
+.header-logo > .logo-font {
+    position: relative;
+    top: 4px;
+    left: 5px;
+}
+
+.big-logo {
+    padding-top: 15px;
+    width: 150px;
+    margin: auto
+}
+
+/**
+ * siderbar style
+ */
+
+menu > .nav-sidebar {
+    margin-top: 20px;
+    margin-left: -70px;
+}
+
+.nav-sidebar > li {
+    list-style: none;
+    width: 245px;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 15px;
+    color: #c5d0de;
+    overflow: hidden;
+}
+
+.browse-user {
+    width: 150px;
+    margin: auto;
+    padding-top: 10px;
+    color: white;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.browse-user:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.nav-sidebar > .open {
+    background-color: #24272d;
+}
+
+.nav-sidebar .icon-pull-right {
+    float: right;
+    width: 70px;
+    height: 38px;
+    position: relative;
+    text-align: center;
+    padding-top: 13px;
+    /*top:13px;*/
+
+}
+
+.nav-sidebar .pointer-icon {
+    float: right;
+    width: 70px;
+    height: 38px;
+    position: relative;
+    text-align: center;
+    padding-top: 13px;
+    top: 13px;
+    cursor: pointer;
+}
+
+.nav-sidebar .link, .sidebar-wrapper-min, .sidebar-expanded {
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.open > .icon-pull-right {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+/**
+ * 子菜单
+ */
+.nav-sidebar .sub-menu {
+    width: inherit;
+    background-color: #214e8f;
+    margin-left: -10px;
+    /*border-top: 1px solid #6BA1E6*/
+    border-top: 1px solid #3D6DB1;
+    /*display: none;*/
+}
+
+.top-menu {
+    border-top: 1px solid #3d6db1;
+    margin-left: -10px;
+    color: white !important;
+}
+
+.top-menu:hover {
+    cursor: pointer;
+    background: #153552;
+    border-top: 1px solid #3d6db1;
+    margin-left: -10px;
+}
+
+.sub-menu {
+    display: none;
+}
+
+.sub-menu.active {
+    display: block;
+}
+
+.sub-menu li {
+    list-style: none;
+    width: inherit;
+    height: 38px;
+    margin-left: -40px;
+    line-height: 38px;
+    padding-left: 55px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: normal !important;
+    font-family: sans-serif !important;
+}
+
+.sub-menu > a > li > label:link, .sub-menu > a > li > label:visited {
+    font-size: 12px;
+    font-weight: normal !important;
+    font-family: sans-serif !important;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sub-menu > a > li > label:hover {
+    cursor: pointer;
+}
+
+.sub-menu li:hover {
+    font-size: 12px;
+    font-weight: normal !important;
+    background-color: rgba(50, 63, 90, 0.93);
+    cursor: pointer;
+}
+
+.item.active {
+    background-color: rgba(50, 63, 90, 0.93);
+    cursor: pointer;
+}
+
+.third-menu {
+    display: none;
+    background: #1B4279;
+    width: inherit;
+    margin-left: -40px;
+    border-top: 1px dashed #2B599A;
+    border-bottom: 1px dashed #2B599A;
+}
+
+.third-menu.active {
+    display: block;
+}
+
+.third-menu > a > li > label {
+    width: 150px;
+    text-align: right;
+    cursor: pointer;
+}
+
+.third-menu > li {
+    cursor: pointer;
+}
+
+.third-menu .active {
+    background-color: rgba(43, 56, 90, 0.93);
+}
+
+.nav-sidebar .icon {
+    padding: 0 15px;
+}
+
+.toggle-navbar {
+    width: 230px;
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    background: #275ca8;
+}
+
+/**
+ * 内容区域样式
+ */
+.page-with-siderbar > .content-wrapper {
+    min-height: 90vh;
+    width: 100%;
+    /*padding: 10px;*/
+    background: #f4f4f4;
+}
+
+.custom-container {
+    position: relative;
+}
+
+.tip-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    line-height: 25px;
+    width: 80px;
+    border: 1px solid #dcdcdc;
+    background-color: #C6BEBE;
+    text-align: center;
+    color: #dcdcdc;
 }

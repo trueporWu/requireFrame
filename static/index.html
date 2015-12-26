@@ -2,16 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>ITSM</title>
+    <link rel="stylesheet" href="frame/bootstrap-v3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="frame/font-awesome-3.2.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/buffer.css">
     <script data-main="js/app.js" src="js/lib/require.js"></script>
+
 </head>
 <body>
 
-首页
-<div class="lala"></div>
+<!--------- main content --------->
+<div class="page-with-siderbar" id="pageWithSidebar">
+    <!--&lt;!&ndash;-&#45;&#45;&#45;&#45;&#45;&#45; 面包屑 -&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+    <!--<div class="broadcast">-->
+    <!--</div>-->
 
-<div id="tpl"></div>
+    <!--------- 左侧菜单 --------->
+    <div class="sidebar-wrapper" id="sidebarWrapper">
+        <div class="big-logo">
+            <img src="img/logo.png" alt=""/>
+        </div>
+        <div class="browse-user" id="">trueporWu</div>
+        <!--<div class="header-logo">-->
+            <!--<img src="img/logo.png" alt="" class="logo-icon"/>-->
+            <!--<span class="logo-font">ITSM信息管理系统</span>-->
+        <!--</div>-->
+        <menu></menu>
+    </div>
+
+    <!--------- 左侧菜单 --------->
+    <div class="content-wrapper">
+        <div class="container-fluid custom-container" id="contentWrapper">
+            <context></context>
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>

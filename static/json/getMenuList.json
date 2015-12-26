@@ -1,0 +1,156 @@
+{
+  "root": [
+    {
+      "open": "true",
+      "name": "工作台",
+      "children": [
+        {
+          "id": "default",
+          "name": "待办事情",
+          "target": "contentIframe",
+          "url": "/todoList/ngframe/index.html",
+          "urlType":"iframe"
+        }
+      ]
+    },
+    {
+      "open": "true",
+      "name": "CASE管理",
+      "children": [
+        {
+          "name": "上报CASE",
+          "target": "contentIframe",
+          "url": "/case/addTask.shtml",
+          "urlType":"iframe"
+        },
+        {
+          "name": "查询及处理",
+          "target": "contentIframe",
+          "url": "/case/searchTask.shtml?flag=0",
+          "urlType":"iframe"
+        },
+        {
+          "name": "二级目录菜单",
+          "children": [
+            {
+              "menu_parent": 19,
+              "name": "三级目录",
+              "target": "contentIframe",
+              "url": "/third.shtml",
+              "urlType":"iframe"
+            },
+            {
+              "menu_parent": 19,
+              "name": "三级目录2",
+              "target": "contentIframe",
+              "url": "/lala.shtml",
+              "urlType":"iframe"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "open": "true",
+      "name": "服务请求",
+      "children": [
+        {
+          "name": "请求上报",
+          "target": "contentIframe",
+          "url": "/add.screen",
+          "urlType":"iframe"
+        },
+        {
+          "name": "请求查询及处理",
+          "target": "contentIframe",
+          "url": "/search.screen",
+          "urlType":"iframe"
+        }
+      ]
+    },
+    {
+      "open": "true",
+      "name": "问题管理",
+      "children": [
+        {
+          "name": "问题上报",
+          "target": "contentIframe",
+          "url": "add.shtml",
+          "urlType":"iframe"
+        },
+        {
+          "name": "查询及处理",
+          "target": "contentIframe",
+          "url": "searchTask.shtml?flag=1",
+          "urlType":"iframe"
+        }
+      ]
+    },
+    {
+      "open": "true",
+      "name": "变更管理",
+      "children": [
+        {
+          "name": "创建变更",
+          "target": "contentIframe",
+          "url": "add.shtml",
+          "urlType":"iframe"
+        },
+        {
+          "name": "查询变更",
+          "target": "contentIframe",
+          "url": "search.screen",
+          "urlType":"iframe"
+        }
+      ]
+    },
+    {
+      "open": "true",
+      "name": "审批",
+      "children": [
+        {
+          "name": "审批处理",
+          "target": "contentIframe",
+          "url": "search.screen",
+          "urlType":"iframe"
+        }
+      ]
+    },
+    {
+      "open": "true",
+      "name": "更多链接",
+      "children": [
+        {
+          "name": "帮助文档下载",
+          "target": "contentIframe",
+          "url": "/help.pptx",
+          "urlType":"blank"
+        },
+        {
+          "name": "报表系统",
+          "target": "contentIframe",
+          "url": "http://report.com",
+          "urlType":"blank"
+        }
+      ]
+    },
+    {
+      "open": "true",
+      "name": "本地目录",
+      "children": [
+        {
+          "name": "author",
+          "target": "contentIframe",
+          "url": "author",
+          "urlType":"local"
+        },
+        {
+          "name": "books",
+          "target": "contentIframe",
+          "url": "books",
+          "urlType":"local"
+        }
+      ]
+    }
+  ]
+}
