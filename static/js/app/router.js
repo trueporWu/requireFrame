@@ -31,6 +31,9 @@ define(['jquery', 'director', 'template', 'app/menu'], function ($, director, te
             path: '/books',
             name: 'books'
         }, {
+            path: '/serverMenu',
+            name: 'serverMenu'
+        }, {
             path: '/books/view/:bookId',
             name: 'books',
             handle: 'viewBook'
@@ -43,9 +46,9 @@ define(['jquery', 'director', 'template', 'app/menu'], function ($, director, te
             name: 'blank',
             handle: 'handleBlank'
         }, {
-            path: '/innerHtml/:url',
-            name: 'innerHtml',
-            handle: 'handleInner'
+            path: '/handleFormPage/:params',
+            name: 'handleFormPage',
+            handle: 'handleForm'
         }
     ];
 
@@ -68,17 +71,25 @@ define(['jquery', 'director', 'template', 'app/menu'], function ($, director, te
                     var name = app.name;
                     //如果配了handle参数,则直接使用handle方法
                     if (app.handle) {
-                        require(['app/' + name], function (obj) {
-                            //console.log(obj[app.handle]);
-                            //回写处理这个路由的处理函数
-                            router.updateRouter(router.routes, path, obj[app.handle]);
-                        });
+                        //require(['app/' + name], function (obj) {
+                        //    //回写处理这个路由的处理函数
+                        //    router.updateRouter(router.routes, path, obj[app.handle]);
+                        //    console.log(router.rt);
+                        //});
+                        //由动态注册改成静态生成.避免初始化加载的时候没有这个目录
+                        router.routes[path] = function (params) {
+                            require(['app/' + name], function (obj) {
+                                obj[app.handle](params);
+                            });
+                        };
+
                     } else {//如果不配handle参数,则直接使用init方法
                         router.routes[path] = function () {
                             require(['app/' + name], function (obj) {
                                 obj.init();
                             });
-                        }
+                        };
+
                     }
                 });
                 router.routeInit();
@@ -91,18 +102,23 @@ define(['jquery', 'director', 'template', 'app/menu'], function ($, director, te
          * @param fn
          */
         updateRouter: function (routes, key, fn) {
-            routes[key] = fn;
-            //console.log(routes);
-            router.routeInit();
+            //即时注册路由
+            router.rt.on(key, fn);
+
         },
         /**
          * 初始化路由
          */
+        historyUrlHash: "",
         routeInit: function () {
             var option = {
                 //每次命中路由的时候,执行的函数
                 on: function () {
-                    menu.onRouterChange();
+                    var urlHash = window.location.hash;
+                    if (router.historyUrlHash != urlHash) {
+                        menu.onRouterChange();
+                        router.historyUrlHash = urlHash;
+                    }
                 }
             };
             router.rt = Router(router.routes).configure(option);

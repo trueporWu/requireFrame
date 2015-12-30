@@ -1,0 +1,83 @@
+<ul class="nav-sidebar" id="accordion">
+
+    <% for (var i=0;i< menuList.length;i++){ %>
+        <li class="top-menu" data-target="#submenu<%= i %>" id="top<%= i %>">
+            <i class="<%=menuList[i].icon%>"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= menuList[i].name %>
+            <i class="icon-chevron-up icon-pull-right top-icon"></i>
+        </li>
+        <ul class="sub-menu" id="submenu<%=i%>">
+            <% if (menuList[i].children.length > 0) {
+                var childrenList = menuList[i].children;
+            %>
+                <% for (var j=0;j< childrenList.length;j++){
+                        var children = childrenList[j];
+                        if(!children.children){
+                %>
+                           <% if('blank'==children.urlType){ %>
+                            <!--如果是blank的链接-->
+                            <a href="<%=children.url%>" target="_blank">
+                                <li data-target="#" class="item" id="<%= children.mid %>">
+                                    <label><%= children.name %></label>
+                                    <i class="icon pointer-icon item-icon" id="icon<%= j %>"></i>
+                                </li>
+                            </a>
+                            <% }else{ %>
+                            <a href="<%=children.url%>">
+                                <li data-target="#" class="item" id="<%= children.mid %>">
+                                    <label><%= children.name %></label>
+                                    <i class="icon pointer-icon item-icon" id="icon<%= j %>"></i>
+                                </li>
+                            </a>
+                            <% } %>
+                <%
+                        }else{
+                %>      <!-- 有子项目 -->
+                            <li data-target="#thirdmenu_<%=i%>_<%=j%>" class="sub-item">
+                                <label><%= children.name %></label>
+                                <i class="icon pointer-icon icon-plus item-icon"></i>
+                            </li>
+                <%
+                            var thirdChild = children.children;
+                            if(thirdChild.length>0){
+                %>
+                            <!--生成下级菜单面板-->
+                            <ul class="third-menu" id="thirdmenu_<%=i%>_<%=j%>">
+
+                <%
+                                for (var k=0;k< thirdChild.length;k++){
+                %>
+                                    <!--循环生成第三级菜单-->
+                                    <% if('blank'==thirdChild[k].urlType){ %>
+                                    <!--如果是blank的链接-->
+                                        <a href="<%=thirdChild[k].url%>" target="_blank">
+                                            <li data-target="#" id="<%= thirdChild[k].mid %>" class="item">
+                                                <label><%=thirdChild[k].name%></label>
+                                            </li>
+                                        </a>
+                                    <% }else{ %>
+                                        <a href="<%=thirdChild[k].url%>">
+                                            <li data-target="#" id="<%= thirdChild[k].mid %>" class="item">
+                                                <label><%=thirdChild[k].name%></label>
+                                            </li>
+                                        </a>
+                                    <% } %>
+
+
+                <%
+                                }
+                %>
+                            </ul>
+                <%
+                            }
+                        }
+                    }
+                %>  <!-- end of loop childrenList -->
+
+            <% } %> <!-- end of if menuList length -->
+        </ul>
+    <% } %>
+
+
+</ul>
+
+<div class="toggle-navbar" id="toggleNavbar"><i class="icon-chevron-left"></i></div>

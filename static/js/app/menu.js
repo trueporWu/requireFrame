@@ -76,6 +76,7 @@ define(['jquery', 'template', 'director', 'app/aes'],
              * @returns {*}
              */
             handleMenuList: function (menuArr) {
+
                 //修改菜单的状态标记,标记成已经加载
                 menu.menuFlag = 1;
                 var resultArr = $.extend(true,[],menuArr);
@@ -331,15 +332,20 @@ define(['jquery', 'template', 'director', 'app/aes'],
             /**
              * 路由变化的时候调用的函数
              */
+            historyUrl:"",
             onRouterChange: function () {
                 var urlHash = window.location.hash;
-                menu.handleItemByUrlHash(urlHash);
+                if(urlHash!=menu.historyUrl){
+                    menu.handleItemByUrlHash(urlHash);
+                    menu.historyUrl = urlHash;
+                }
                 //console.log(urlHash);
             },
             /**
              * 通过urlHash取得目录的ID
              */
             handleItemByUrlHash: function (urlHash) {
+
                 if (0 == menu.menuFlag) {
                     setTimeout(function () {
                         menu.handleItemByUrlHash(urlHash);
